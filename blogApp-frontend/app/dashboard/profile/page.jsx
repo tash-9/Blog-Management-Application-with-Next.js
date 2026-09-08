@@ -45,14 +45,20 @@ export default function Profile() {
   const pickFile = (f) => {
     setFile(f);
     setPreview(f ? URL.createObjectURL(f) : null);
+
+    if (f) {
+      upload(f);
+    }
   };
 
-  const upload = async () => {
-    if (!file) {
+  const upload = async (f) => {
+    const selected = f || file;
+
+    if (!selected) {
       return setError("Please choose an image first.");
     }
 
-    if (!file.type.startsWith("image/") || file.size > 5 * 1024 * 1024) {
+    if (!selected.type.startsWith("image/") || selected.size > 5 * 1024 * 1024) {
       return setError("Choose an image under 5 MB.");
     }
 
@@ -60,11 +66,11 @@ export default function Profile() {
     setPending(true);
 
     try {
-      await uploadProfileImage(file);
+      await uploadProfileImage(selected);
       await refreshProfile();
 
       setMessage("Profile image updated successfully.");
-      pickFile(null);
+      setFile(null);
     } catch (e) {
       setError(e.message);
     } finally {
@@ -123,24 +129,17 @@ export default function Profile() {
             </p>
 
             <div className="mt-3 flex flex-wrap items-center gap-3">
-              <label className="button-secondary cursor-pointer text-sm">
+              <label className="button cursor-pointer text-sm">
+                <UploadCloud size={15} />
                 Choose Image
                 <input
                   type="file"
                   accept="image/*"
                   className="hidden"
+                  disabled={pending}
                   onChange={(e) => pickFile(e.target.files?.[0] || null)}
                 />
               </label>
-
-              <button
-                disabled={pending || !file}
-                onClick={upload}
-                className="button text-sm"
-              >
-                <UploadCloud size={15} />
-                Upload
-              </button>
             </div>
           </div>
         </div>

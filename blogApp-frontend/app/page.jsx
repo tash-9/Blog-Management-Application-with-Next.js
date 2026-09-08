@@ -50,7 +50,7 @@ export default function Home() {
         <div className="container-page py-16 text-center sm:py-20">
           <span className="badge-category mx-auto">
             <Sparkles size={13} />
-            Frontend Development Assignment
+            All your blog in one place
           </span>
 
           <h1 className="mx-auto mt-4 max-w-2xl text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">

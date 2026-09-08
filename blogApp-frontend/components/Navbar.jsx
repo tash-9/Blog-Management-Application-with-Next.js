@@ -33,7 +33,7 @@ export default function Navbar() {
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
             <Sparkles size={17} strokeWidth={2.5} />
           </span>
-          blog<span className="text-primary">App</span>
+          <span>blog<span className="text-primary">App</span></span>
         </Link>
 
         <form

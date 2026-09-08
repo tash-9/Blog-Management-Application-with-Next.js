@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
+  Home,
   LayoutDashboard,
   Newspaper,
   PenSquare,
@@ -22,6 +23,11 @@ export default function Sidebar() {
   const admin = String(user?.role || "").toLowerCase() === "admin";
 
   const links = [
+    {
+      href: "/",
+      label: "Home",
+      icon: Home,
+    },
     {
       href: "/dashboard",
       label: "Dashboard",
