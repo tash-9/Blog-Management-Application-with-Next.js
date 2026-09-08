@@ -1,0 +1,37 @@
+export const BRAND_NAME = "blogApp";
+
+// Centralized category list — used by the create/edit blog form,
+// the homepage category filter, and anywhere else categories are shown.
+// Keeping this in one place means every part of the app always stays in sync.
+export const CATEGORIES = [
+  "Technology",
+  "Programming",
+  "Web Development",
+  "Mobile Development",
+  "AI & Machine Learning",
+  "Data Science",
+  "Cloud Computing",
+  "DevOps",
+  "Cybersecurity",
+  "Testing & QA",
+  "Automation",
+  "Software Engineering",
+  "UI/UX Design",
+  "Career & Productivity",
+  "Business & Startup",
+  "Marketing",
+  "Finance",
+  "Health & Wellness",
+  "Travel",
+  "Food & Cooking",
+  "Lifestyle",
+  "Education",
+  "Science",
+  "Sports",
+  "Entertainment",
+  "Gaming",
+  "Photography",
+  "Personal Development",
+  "Environment & Sustainability",
+  "Other",
+];
