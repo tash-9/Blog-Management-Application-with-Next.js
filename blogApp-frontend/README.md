@@ -1,4 +1,4 @@
-# blogApp — Blog Management Application
+# blogApp — Frontend
 
 blogApp is a Next.js + Tailwind CSS frontend for a REST API-based blog platform. It supports guest blog discovery, authenticated blog management, profile management, password recovery, and admin user controls.
 
@@ -10,14 +10,15 @@ This project was created for the **Frontend Development** assignment. It consume
 
 ## ✨ Features
 
-- Browse, search, and filter blogs by category (29 categories covered — Technology, Programming, AI & Machine Learning, Business, Health, Travel, Lifestyle, and more)
+- Browse, search, and filter blogs by category — no login required
 - Read individual blog posts with author information
 - Register, login, logout, forgot-password, and reset-password flows
 - Persistent token-based authentication and protected dashboard routes
-- Create, update, and delete blogs
-- Profile editing and profile-image upload with live preview
+- Create, update, and delete your own blogs
+- Profile editing with instant profile-image upload and live preview
 - Change password
-- Role-based admin menu and user activation/deactivation controls
+- Role-based admin menu with user activation/deactivation controls
+- A "Home" link in the dashboard sidebar (alongside the logo) so logged-in users can always get back to the public blog list
 - Loading, error, empty, and confirmation states throughout
 - Fully responsive public pages, dashboard, and sidebar
 
@@ -82,8 +83,8 @@ app/
 │   └── change-password/page.jsx
 └── admin/users/page.jsx
 components/
-├── Navbar.jsx
-├── Sidebar.jsx
+├── Navbar.jsx                        # Logo, search bar, and auth/profile menu
+├── Sidebar.jsx                       # Dashboard nav — includes a "Home" link back to "/"
 ├── ProfileMenu.jsx
 ├── AuthShell.jsx                     # Shared split-panel layout for auth pages
 ├── BlogCard.jsx
@@ -92,6 +93,7 @@ components/
 ├── CategoryFilter.jsx
 ├── Loader.jsx
 ├── EmptyState.jsx
+├── BackButton.jsx
 └── ConfirmDialog.jsx
 services/
 ├── auth.service.js
@@ -113,7 +115,7 @@ utils/
 
 ```bash
 git clone https://github.com/tash-9/Blog-Management-Application-with-Next.js.git
-cd Blog-Management-Application-with-Next.js
+cd Blog-Management-Application-with-Next.js/blogApp-frontend
 ```
 
 2. Install dependencies:
@@ -179,13 +181,13 @@ connection code and stores no data of its own. All blogs, users, and
 authentication are handled entirely by the backend at the URL set in
 `NEXT_PUBLIC_API_URL`.
 
-The [Blog Application REST API](https://github.com/username/Blog-Application-REST-API-Development) (Node/Express + MySQL) is a separate project, built and
-submitted independently. It must be running and reachable at that URL before
-this frontend will show any real data.
+The [blogApp-backend](../blogApp-backend) REST API (Node/Express + MySQL) is
+the sibling project in this same repository. It must be running and
+reachable at that URL before this frontend will show any real data.
 
 ---
 
-### 📸 
+### 📸
 Screenshots to be added
 
 ---
